@@ -6,8 +6,11 @@
 $colorTheme: #45437c;
 $colorWhite: #fff;
 $colorGrey: #797979;
+$colorBlack: #000;
 $colorDark: #4a4a4a;
 $colorOrange: #f69452;
+$colorGreen: #00dd05;
+$colorRed: #e60000;
 
 //common
 @font-face {font-family: "iconfont";
@@ -41,13 +44,21 @@ $colorOrange: #f69452;
 }
 
 html{ font-size: 20px;}
-body{ font-family: /*"DINPro",*/Helvetica, Arial, sans-serif; font-size: 14px; -webkit-font-smoothing: antialiased;}
+body{ font-family: /*"DINPro",*/Helvetica, Arial, sans-serif; font-size: 14px;
+  line-height: 1.5; -webkit-font-smoothing: antialiased;}
 html,body{
   height: 100%;
 }
 #content{ overflow: hidden; max-width: 800px; margin: auto; }
-a{ text-decoration: none;}
-.ui-btn{ display: block; height: 60px; line-height: 60px; text-align: center; font-size: 18px; background: $colorTheme; color: $colorWhite;}
+a{ text-decoration: none;
+  color: $colorBlack;}
+.ui-btn{ display: block; height: 60px; line-height: 60px; text-align: center; font-size: 18px; background: $colorTheme; color: $colorWhite;
+  &.btn-small{
+    font-size: 14px;
+    height: 26px;
+    line-height: 26px;
+  }
+}
 img{ max-width: 100%; }
 
 .colorPurple{
@@ -55,6 +66,28 @@ img{ max-width: 100%; }
 }
 .colorGrey{
   color: $colorGrey;
+}
+.colorDark{
+  color: $colorDark;
+}
+.colorGreen{
+  color: $colorGreen;
+}
+.colorRed{
+  color: $colorRed;
+}
+.tar{
+  text-align: right;
+}
+.tac{
+  text-align: center;
+}
+
+.ui-list{
+  list-style-type: disc;
+  li{
+    margin-left: 16px;
+  }
 }
 
 .icon-info{
@@ -372,6 +405,7 @@ img{ max-width: 100%; }
   .button-bar{
     margin: 24px 0;
   }
+  .link{ display: block; text-align: center; font-size: 12px; color: $colorGrey; margin: 20px 0;}
 }
 
 .cardsinfo-list{ margin-bottom: 10px;
@@ -555,4 +589,38 @@ img{ max-width: 100%; }
   border-top:1px solid #e5e5ee;
   padding:10px 0;
   line-height: 1.5;
+}
+
+//reservation
+.item-table{
+  margin:10px -15px;
+  .row{
+    border-bottom:1px solid #dfdfdf;
+    padding:5px 10px;
+    line-height: 26px;
+
+    &:first-child{
+      border-top:1px solid #dfdfdf;
+    }
+
+    & > a{
+      display: block;
+      padding:5px 10px;
+      margin:-5px -10px;
+    }
+  }
+  table{
+    width: 100%;
+  }
+  td{
+    padding:0 5px;
+  }
+  .subrow{
+    .row{
+      padding:5px 20px;
+      &:first-child{
+        border-top: 0;
+      }
+    }
+  }
 }
