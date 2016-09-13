@@ -5,13 +5,24 @@
     <title>La Luna Events</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/iSlider.min.css"/>
 </head>
 <body>
 <div id="content">
     <div id="J_SitePage" class="site-page">
+        <nav class="site-menu">
+            <ul>
+                <li><a href="eventsList.html">Upcoming Events</a></li>
+                <li><a href="newsList.html">News</a></li>
+                <li><a href="newsList.html">Travel</a></li>
+                <li><a href="benefitList.html">Benefits</a></li>
+                <li><a href="login.html">Member card login</a></li>
+                <li><a href="partyList.html">Party Scene</a></li>
+            </ul>
+        </nav>
         <header class="site-nav-bar">
             <div class="nav-bar-left">
-                <a class="button iconfont" href="###">&#xf007;</a>
+                <a id="J_BtnSiteMenu" class="button iconfont" href="###">&#xf0c9;</a>
             </div>
             <div class="nav-bar-title">La Luna Events 泛亚飞越</div>
             <div class="nav-bar-right">
@@ -20,20 +31,87 @@
             </div>
         </header>
         <div class="site-content">
-            <div class="home-contents">
-                <ul>
-                    <li><a href="eventsList.html"><span>Upcoming Events</span></a></li>
-                    <li><a href="newsList.html"><span>News</span></a></li>
-                    <li><a href="newsList.html"><span>Travel</span></a></li>
-                    <li><a href="benefitList.html"><span>Benefits</span></a></li>
-                    <li><a href="login.html"><span>Member card login</span></a></li>
-                    <li><a href="partyList.html"><span>Party Scene</span></a></li>
+            <div class="index-slides" id="J_Slider">
+                <ul id="J_SliderData" style="display: none;">
+                    <li>
+                        <div class="pic"><img src="images/event_pic.jpg" alt=""/></div>
+                        <div class="info">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis excepturi, harum laudantium minima minus neque optio placeat quaerat quasi quisquam quod tempora? Aliquam enim eos fugit minus officia reprehenderit vero.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pic"><img src="images/event_pic.jpg" alt=""/></div>
+                        <div class="info">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis excepturi, harum laudantium minima minus neque optio placeat quaerat quasi quisquam quod tempora? Aliquam enim eos fugit minus officia reprehenderit vero.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pic"><img src="images/event_pic.jpg" alt=""/></div>
+                        <div class="info">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis excepturi, harum laudantium minima minus neque optio placeat quaerat quasi quisquam quod tempora? Aliquam enim eos fugit minus officia reprehenderit vero.
+                        </div>
+                    </li>
                 </ul>
             </div>
+            <div class="index-hots">
+                <h3><span>优惠尊享</span></h3>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <div class="pic"><img src="images/event_pic.jpg" alt=""></div>
+                            <div class="info">厦门泛太平洋大酒店海天楼中餐厅</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="pic"><img src="images/event_pic.jpg" alt=""></div>
+                            <div class="info">厦门泛太平洋大酒店海天楼中餐厅</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="pic"><img src="images/event_pic.jpg" alt=""></div>
+                            <div class="info">厦门泛太平洋大酒店海天楼中餐厅</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="pic"><img src="images/event_pic.jpg" alt=""></div>
+                            <div class="info">厦门泛太平洋大酒店海天楼中餐厅</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="site-footer">
+            Copyright © 2016 La Luna Events. All Rights Reserved<br>
+            闽ICP备14006999号-1
         </div>
     </div>
 </div>
 </body>
 <script src="js/zepto.min.js"></script>
 <script src="js/laluna.js"></script>
+<script src="js/iSlider/iSlider.min.js"></script>
+<script src="js/iSlider/iSlider.plugin.dot.min.js"></script>
+<script>
+    $(function () {
+        var slide = $("#J_Slider"),
+                picDom = $("#J_SliderData li"),
+                itemPiclist = [];
+
+        picDom.each(function () {
+            itemPiclist.push({content:this.innerHTML});
+        });
+        var S = new iSlider(slide[0],itemPiclist,{
+            fixPage : 0,
+            animateTime: 500,
+            isLooping:true,
+            isAutoplay:true,
+            duration:5000,
+            plugins: [['dot',{locate:'relative'}]]
+        });
+    });
+</script>
 </html>
