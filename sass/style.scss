@@ -334,6 +334,17 @@ img{ max-width: 100%; }
     font-size: 12px;
     margin:5px 0;
   }
+
+  .more{
+    text-align: center;
+    a{
+      display: block;
+      margin:0 20%;
+      background: $colorGrey;
+      line-height: 40px;
+      color: $colorWhite;
+    }
+  }
 }
 
 //home
