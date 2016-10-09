@@ -158,9 +158,13 @@
 <script src="js/laluna.js"></script>
 <script>
     $(function () {
-        $(".item-table > .row").on("click", function () {
+        $(".item-table > .row").on("click", function (){
+            var subrow = $(this).next(".subrow"),
+                    isOpened = subrow.css("display") == "block";
             $(".subrow").hide();
-            $(this).next(".subrow").show();
+            if(!isOpened){
+                subrow.show();
+            }
         })
     })
 </script>
