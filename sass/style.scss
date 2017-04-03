@@ -49,6 +49,11 @@ body{ font-family: /*"DINPro",*/Helvetica, Arial, sans-serif; font-size: 14px;
 html,body{
   height: 100%;
 }
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 #content{ overflow: hidden; max-width: 800px; margin: auto; }
 a{ text-decoration: none;
   color: $colorBlack;}
@@ -197,7 +202,7 @@ img{ max-width: 100%; }
   .button{ display: inline-block; width: 44px; vertical-align: top; font-size: 18px; color: $colorTheme; text-align: center;}
 }
 .nav-bar-left{  }
-.nav-bar-title{ text-indent: -9999px; height: 100%; background: url("../images/logo.png") center no-repeat; @include background-size(auto 40px); @include flexbox((box-flex:1));}
+.nav-bar-title{ text-indent: -9999px; height: 100%; background: url("../images/logo.png") left no-repeat; @include background-size(auto 40px); @include flexbox((box-flex:1));}
 .nav-bar-right{}
 .link-lang{ font-size: 12px; color: #c0c0c0;
   &.lang-en .en,&.lang-zh .zh{ color: $colorTheme;}
@@ -398,11 +403,17 @@ img{ max-width: 100%; }
     &:before{ position: absolute; content: "\f105"; color: #b7b7b7; font-size: 12px; right: 0; top: 0; height: 40px; line-height: 40px;}
   }
   .c{ vertical-align: middle; display: inline-block; line-height: 35px;}
+  .r{
+    float: right;
+  }
   .ico{ display: inline-block; width: 35px; height: 35px; vertical-align: middle; background: url("../images/usercenter_icon_sprites.png") no-repeat; @include background-size(35px auto);}
   .ico-fav{ background-position: 0 -35px;}
   .ico-profile{ background-position: 0 -70px;}
   .ico-reset{ background-position: 0 -105px;}
   .ico-logout{ background-position: 0 -140px;}
+  .ico-order{ background-position: 0 -175px;}
+  .ico-credit{ background-position: 0 -210px;}
+  .ico-active{ background-position: 0 -245px;}
 }
 .cardbox{ position: relative; width: 14.5rem; height: 9.1rem; margin:0 auto; @include background-size(100%); font-size: 0.6rem;
   .user-info{ position: absolute; right: 0.95rem; bottom: 0.8rem; width: 3rem;
@@ -701,19 +712,31 @@ img{ max-width: 100%; }
   color: $colorTheme;
   padding:20px 15px 10px;
   font-size: 16px;
-  background: #f5f5f5;
+  border-bottom:1px solid #ccc;
 }
 .tbview-list{
-  li{ position: relative; border-bottom: 1px solid #e5e5ee; padding: 8px 0; line-height: 30px; color: $colorDark; font-size: 14px;
+  li{ position: relative; border-bottom: 1px solid #e5e5ee; padding: 8px 0; line-height: 30px; color: $colorDark; font-size: 14px; display: -webkit-box;
     &:last-child{ border: 0;}
     &.list-sep{ margin-top: 45px;}
   }
-  a{ display: -webkit-box; color: $colorDark; padding: 8px 15px 8px 0; margin:-8px 0;
-    &:before{ position: absolute; content: "\f105"; color: #b7b7b7; font-size: 12px; right: 0; top: 0; height: 46px; line-height: 46px;}
+  a{ display: -webkit-box;
+    width: 100%; color: $colorDark; padding: 8px 20px 8px 0; margin:-8px 0;
+    &:before{ position: absolute; content: "\f105"; color: #b7b7b7; font-size: 14px; right: 0; top: 0; height: 46px; line-height: 46px;}
   }
   .c{ display: block; -webkit-box-flex: 1; color:$colorDark; }
   .ico{ display: block; width: 30px; height: 30px; vertical-align: middle; font-size: 18px; color:$colorTheme;}
-  .ex{ display: block; margin-left: 7px; color:$colorGrey; font-size:10px;}
+  .ex{ display: block; margin-left: 7px; color:$colorGrey; font-size:12px;}
+
+  .tit{
+    color: $colorTheme;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .tit-sub{
+    color: $colorGrey;
+    font-size: 12px;
+    line-height: 20px;
+  }
 }
 .discount-desc{
   border-top:1px solid #e5e5ee;
@@ -751,6 +774,32 @@ img{ max-width: 100%; }
       &:first-child{
         border-top: 0;
       }
+    }
+  }
+}
+
+//credits
+.credits-top{
+  position: relative;
+  background: #eeeeee;
+  padding:30px 20px;
+  margin:-15px -15px 0;
+  .con{
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    strong{
+      color: $colorTheme;
+      font-size: 44px;
+    }
+  }
+  .extra{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 12px;
+    a{
+      text-decoration: underline;
     }
   }
 }
