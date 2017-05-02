@@ -808,7 +808,9 @@ img { max-width: 100%; }
 .item-select .item strong { font-size: 18px; }
 /* line 1000, ../sass/style.scss */
 .item-select .item p { font-size: 12px; }
-/* line 1005, ../sass/style.scss */
-.item-select .selected .item { border-color: #45437c; color: #45437c; }
+/* line 1004, ../sass/style.scss */
+.item-select input[type=radio], .item-select input[type=checkbox] { display: none; }
+/* line 1006, ../sass/style.scss */
+.item-select input[type=radio]:checked + .item, .item-select input[type=checkbox]:checked + .item { border-color: #45437c; color: #45437c; }
 
 /*# sourceMappingURL=style.css.map */

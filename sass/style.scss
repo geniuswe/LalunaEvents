@@ -1001,8 +1001,9 @@ img{ max-width: 100%; }
       font-size: 12px;
     }
   }
-  .selected{
-    .item{
+  input[type=radio],input[type=checkbox]{
+    display: none;
+    &:checked+.item{
       border-color: $colorTheme;
       color: $colorTheme;
     }
