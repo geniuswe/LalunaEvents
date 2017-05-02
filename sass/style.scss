@@ -867,14 +867,20 @@ img{ max-width: 100%; }
     bottom: 0;
     width: 100%;
     left: 0;
+    @include display-flex();
   }
   a{
+    @include flex(1);
     display: block;
     line-height: 45px;
     text-align: center;
     background: $colorTheme;
     color: $colorWhite;
     font-size: 16px;
+    border-left:1px solid $colorWhite;
+    &:first-child{
+      border-left: 0;
+    }
   }
 }
 
@@ -960,5 +966,45 @@ img{ max-width: 100%; }
     left: 0;
     width: 100%;
     font-size: 12px;
+  }
+}
+
+
+.borderbox{
+  padding: 15px;
+  background: $colorWhite;
+  margin:-15px -15px 10px;
+
+  h3{
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+}
+
+.item-select{
+  overflow: hidden;
+  li{
+    float: left;
+    width: 33.3%;
+  }
+  .item{
+    text-align: center;
+    margin:0 5px;
+    border:2px solid #a9a9a9;
+    background: $colorWhite;
+    padding:10px 0;
+    color: $colorDark;
+    strong{
+      font-size: 18px;
+    }
+    p{
+      font-size: 12px;
+    }
+  }
+  .selected{
+    .item{
+      border-color: $colorTheme;
+      color: $colorTheme;
+    }
   }
 }
