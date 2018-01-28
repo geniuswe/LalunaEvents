@@ -6,11 +6,14 @@
 $colorTheme: #45437c;
 $colorWhite: #fff;
 $colorGrey: #797979;
+$colorGreyBg: #f7f7f7;
+$colorBorder: #dfdfdf;
 $colorBlack: #000;
 $colorDark: #4a4a4a;
 $colorOrange: #f69452;
 $colorGreen: #00dd05;
 $colorRed: #e60000;
+
 
 //common
 @font-face {font-family: "iconfont";
@@ -29,6 +32,7 @@ $colorRed: #e60000;
 .ico-globe:before,
 .ico-phone:before,
 .icon-info .ico:before,
+.nav-menu .ico:before,
 .swipe-prev:before,
 .swipe-next:before,
 .combobox:before,
@@ -95,6 +99,19 @@ img{ max-width: 100%; }
   }
 }
 
+.topimg{
+  margin-bottom: 15px;
+  img{
+    width: 100%;
+  }
+}
+
+.title{
+  font-size: 14px;
+  color: $colorTheme;
+  margin:20px 0 10px;
+}
+
 .combobox{
   position: relative;
   select{
@@ -137,9 +154,9 @@ img{ max-width: 100%; }
       font-size: 16px;
     }
   }
-  .button-bar{
-    margin:24px 0;
-  }
+}
+.button-bar{
+  margin:24px 0;
 }
 
 
@@ -154,6 +171,16 @@ img{ max-width: 100%; }
 .ico-globe:before{ content: "\f0ac";}
 .ico-success:before{ content:"\f058"; color:#2ecc71;}
 .ico-error:before{ content:"\f057"; color:#fa7228;}
+.ico-star:before{
+  content:"\f005";
+}
+.ico-diamond:before{
+  content:"\f3a5";
+}
+.ico-my:before{
+  content:"\f007";
+}
+
 
 .tabbar{ margin: 0 -15px 10px;
   ul{@include flexbox((display: box),$version:1); background: #f9f9f8;}
@@ -193,8 +220,8 @@ img{ max-width: 100%; }
 }
 
 //topbar
-.site-top-bar{ height: 50px; background: $colorTheme; line-height: 50px; color: $colorWhite; @include flexbox((display: box),$version:1);
-  .button{ color: $colorWhite; display: inline-block; vertical-align: top; height: 50px;}
+.site-top-bar{ height: 44px; background: $colorTheme; line-height: 44px; color: $colorWhite; @include flexbox((display: box),$version:1);
+  .button{ color: $colorWhite; display: inline-block; vertical-align: top; height: 44px;}
 }
 .site-top-left{@include flexbox((box-flex:1),$version:1);
   .button{ padding: 0 15px 0 10px; font-size: 16px;
@@ -218,7 +245,7 @@ img{ max-width: 100%; }
 }
 
 //navbar
-.site-nav-bar{ position: relative; height: 50px; background: $colorWhite; border-bottom: 1px solid #c8bdb5; @include flexbox((display: box)); line-height: 50px;
+.site-nav-bar{ position: relative; height: 44px; background: $colorWhite; border-bottom: 1px solid #c8bdb5; @include flexbox((display: box)); line-height: 44px;
   .button{ display: inline-block; width: 44px; vertical-align: top; font-size: 18px; color: $colorTheme; text-align: center;}
 }
 .nav-bar-left{  }
@@ -229,12 +256,69 @@ img{ max-width: 100%; }
 }
 .nav-bar-search{ display: none; position: absolute; left: 0; top: 0; right: 0; height: 100%; padding-right: 75px; background: $colorWhite;
   input{ display: block; font-size: 18px; color: $colorTheme; width: 100%; height: 100%; @include box-sizing(border-box); padding: 0 0 0 46px; border: 0; background: none;}
-  .search-cancel{ position: absolute; right: 0; top: 0; width: 75px; line-height: 50px; text-align: center; font-size: 16px; color: $colorGrey;}
-  &:before{ position: absolute; pointer-events: none; left: 0; top: 50%; margin-top: -25px; width: 46px; height: 50px; content: "\f002"; text-align: center; font-size: 20px; color: $colorTheme;}
+  .search-cancel{ position: absolute; right: 0; top: 0; width: 75px; line-height: 44px; text-align: center; font-size: 16px; color: $colorGrey;}
+  &:before{ position: absolute; pointer-events: none; left: 0; top: 50%; margin-top: -22px; width: 46px; height: 44px; content: "\f002"; text-align: center; font-size: 20px; color: $colorTheme;}
+}
+
+//nav-menu
+.nav-menu{
+  height: 49px;
+}
+.nav-menu-bar{
+  position: fixed;
+  border-top:1px solid $colorBorder;
+  background: $colorGreyBg;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  height: 48px;
+  font-size: 12px;
+  ul{
+    @include display-flex();
+  }
+  li{
+    position: relative;
+    @include flex(1);
+    height: 48px;
+    text-align: center;
+    /*&:after{
+      content:"";
+      position: absolute;
+      left: 0;
+      height: 24px;
+      top: 12px;
+      width: 1px;
+      background: darken($colorGreyBg,10);
+    }
+    &:first-child{
+      &:after{
+        display: none;
+      }
+    }*/
+    &.current{
+      a{
+        color: $colorTheme;
+      }
+    }
+  }
+  a{
+    display: block;
+    height: 100%;
+    color: $colorDark;
+  }
+  .ico{
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    &:before{
+      font-size: 24px;
+    }
+  }
 }
 
 //site-content
-.site-content{ padding: 15px; -webkit-box-flex: 1; background: url("../images/page_bg.jpg") no-repeat top $colorWhite; @include background-size(100% auto);}
+.site-content{ padding: 15px; -webkit-box-flex: 1;
+  background: $colorWhite no-repeat; /*background: url("../images/page_bg.jpg") no-repeat top $colorWhite;*/ @include background-size(100% auto);}
 .site-content-white{
   background: none;
 }
@@ -397,7 +481,7 @@ img{ max-width: 100%; }
     small{ color: $colorGrey; font-size: 10px;}
   }
   input{ width: 100%; border: 0; border-bottom: 1px solid #e5e5ee; background: none; height: 27px; font-size: 16px; color: $colorDark;}
-  .button-bar{ margin: 24px 0;
+  .button-bar{
     .link{ display: block; text-align: center; font-size: 12px; color: $colorGrey; margin: 20px 0;}
   }
 }
@@ -437,6 +521,8 @@ img{ max-width: 100%; }
   .ico-order{ background-position: 0 -175px;}
   .ico-credit{ background-position: 0 -210px;}
   .ico-active{ background-position: 0 -245px;}
+  .ico-post{ background-position: 0 -280px; }
+  .ico-recommend{ background-position: 0 -315px; }
 }
 .cardbox{ position: relative; width: 14.5rem; height: 9.1rem; margin:0 auto; @include background-size(100%); font-size: 0.6rem;
   .user-info{ position: absolute; right: 0.95rem; bottom: 0.8rem; width: 3rem;
@@ -521,13 +607,18 @@ img{ max-width: 100%; }
 .form-list{
   ul{ display: table; width: 100%; font-size: 14px;}
   li{ display: table-row; line-height: 34px;}
-  .t{ display: table-cell; padding-right: 15px; padding-top: 10px; color: $colorTheme; white-space: nowrap; border-bottom: 1px solid #e5e5ee;}
-  .c{ display: table-cell; width: 100%; padding-top: 10px; border-bottom: 1px solid #e5e5ee;}
-  select{@include appearance(none); background: none; border: 0; width: 100%; height: 100%; font-size: 14px;color:#666;}
+  .t{ display: table-cell;  padding:5px 15px 5px 0; color: $colorTheme; white-space: nowrap; border-bottom: 1px solid #e5e5ee;}
+  .c{ display: table-cell; padding:5px 0; width: 100%; border-bottom: 1px solid #e5e5ee;}
+  select{@include appearance(none); background: none; border: 0; width: 100%; font-size: 14px;color:#666;}
   input{
     &[type=text],
     &[type=password],
-    &[type=number]{ border: 0; height: 100%; width: 100%; padding: 0; background: none; font-size: 14px; color:#666;}
+    &[type=number]{ border: 0; height: 40px; width: 100%; padding: 0; background: none; font-size: 14px; color:#666;}
+  }
+  .combobox{
+    select{
+      padding-left: 0;
+    }
   }
 }
 .form-vertical{
@@ -565,9 +656,6 @@ img{ max-width: 100%; }
       color:#666;
       padding:0 10px;
     }
-  }
-  .button-bar{
-    margin: 24px 0;
   }
   .link{ display: block; text-align: center; font-size: 12px; color: $colorGrey; margin: 20px 0;}
 }
@@ -810,7 +898,8 @@ img{ max-width: 100%; }
 //credits
 .credits-top{
   position: relative;
-  background: #eeeeee;
+  /*background: #eeeeee;*/
+  border-bottom:1px solid $colorBorder;
   padding:30px 20px;
   margin:-15px -15px 0;
   .con{
@@ -861,18 +950,20 @@ img{ max-width: 100%; }
 }
 
 .ft-btnbar{
-  height: 45px;
-  .wrap{
+  height: 44px;
+  ul{
     position: fixed;
     bottom: 0;
     width: 100%;
     left: 0;
     @include display-flex();
   }
-  a{
+  li{
     @include flex(1);
+  }
+  a{
     display: block;
-    line-height: 45px;
+    line-height: 44px;
     text-align: center;
     background: $colorTheme;
     color: $colorWhite;
@@ -923,22 +1014,14 @@ img{ max-width: 100%; }
     padding:20px 0;
     overflow: hidden;
   }
-  .uploadinfo{
-    display: inline-block;vertical-align: bottom;
-    font-size: 12px;
-    margin-top: 10px;
-    a{
-      display: block;
-      text-decoration: underline;
-    }
-  }
+
 }
 
 .uploadbox{
   display: inline-block;vertical-align: bottom;
   margin-right: 10px;
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   position: relative;
   border:1px solid #dcdcdc;
   text-align: center;
@@ -961,14 +1044,23 @@ img{ max-width: 100%; }
     font-family: Arial;
   }
   .up-intro{
+    line-height: 1.2;
     position: absolute;
-    bottom: 15px;
+    bottom: 10px;
     left: 0;
     width: 100%;
     font-size: 12px;
   }
 }
-
+.uploadinfo{
+  display: inline-block;vertical-align: bottom;
+  font-size: 12px;
+  margin:10px 0;
+  line-height: 1.2;
+  a{
+    text-decoration: underline;
+  }
+}
 
 .borderbox{
   padding: 15px;
@@ -1007,5 +1099,37 @@ img{ max-width: 100%; }
       border-color: $colorTheme;
       color: $colorTheme;
     }
+  }
+}
+
+
+//fitness
+.fitness-content{
+  background-image: url(../images/fitness_bg.jpg);
+  padding-top: 12.25rem;
+  padding-bottom: 1.75rem;
+}
+.con-title{
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: $colorTheme;
+  margin-bottom: 1.5rem;
+}
+.con-buttons{
+  @include display-flex();
+  li{
+    @include flex(1);
+  }
+  a{
+    display: block;
+    width: 80%;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: $colorWhite;
+    background: $colorTheme;
+    margin: auto;
   }
 }
