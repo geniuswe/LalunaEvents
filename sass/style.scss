@@ -540,6 +540,38 @@ img{ max-width: 100%; }
     em{ color: #000;}
   }
 }
+.card-fitness{
+  background-image: url("../images/fitness_card.jpg");
+  color: $colorWhite;
+}
+.card-invalid{
+  &:after{
+    content:"";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: $colorBlack;
+    opacity: 0.8;
+    left: 0;
+    top: 0;
+    @include border-radius(.45rem);
+  }
+  .invalid-info{
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    left: 0;
+    line-height: 2;
+    margin-top: -0.6rem;
+    color: $colorWhite;
+    a{
+      color: $colorWhite;
+    }
+  }
+}
+
 /*.card-gym-men{ background-image: url("../images/gymcard_men.png"); color: $colorWhite;
   .date-info{}
 }
